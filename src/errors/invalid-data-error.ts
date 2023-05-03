@@ -2,7 +2,7 @@ import { ApplicationError } from "@/protocols";
 
 export function invalidDataError(detais: string[]): ApplicationInvalidateDataError {
   return {
-    name: 'InvalidDataError',
+    name: 'InvalidCredentialsError',
     message: 'Invalid Data',
     detais,
   };
