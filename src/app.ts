@@ -18,16 +18,17 @@ app
   .use(express.json())
   .get('/health', (_req, res) => res.send('OK!'))
   .use('/users', usersRouter)
+  .use(handleApplicationErrors);
 
 export function init(): Promise<Express> {
   connectDb();
-  connectRedis();
+  // connectRedis();
   return Promise.resolve(app);
 }
 
 export async function close(): Promise<void> {
   await disconnectDB();
-  await disconnectRedis();
+  // await disconnectRedis();
 }
 
 export default app;
